@@ -1,0 +1,48 @@
+.all-doctors-div{
+  margin-top: 5rem;
+}
+.doctor-section{
+  margin-top: 2.5rem;
+  display: flex;
+  gap:2rem;
+  flex-wrap: wrap;
+}
+.more-btn{
+  /* text-align: center; */
+  height: 2rem;
+  width: 5rem;
+  border-radius: 15px;
+  background-color: rgb(75 85 99);
+  margin: 2rem auto;
+  color: #ffffff;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+.category-buttons{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.category-buttons button{
+  background-color: rgb(95 111 255);
+  height: 3rem;
+  width: 10rem;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 400;
+}
+.search-box{
+  margin:2rem 0;
+  border-bottom: 2px solid black;
+  
+}
+/* .active{
+  background-color: red;
+} */
+.category-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}

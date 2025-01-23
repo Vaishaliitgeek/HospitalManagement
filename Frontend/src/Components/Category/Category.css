@@ -1,0 +1,31 @@
+.center-heading{
+  text-align: center;
+  margin-top: 2.4rem;
+
+}
+.center-heading h1{
+  font-size: 1.8rem;
+  
+  font-weight: 500;
+  /* margin: auto; */
+}
+.center-heading p{
+  margin-top: 1rem;
+}
+.category-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+/* .cat1 img{
+  height: 4rem;
+} */
+
+.cat1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

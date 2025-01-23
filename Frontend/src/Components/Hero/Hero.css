@@ -1,0 +1,33 @@
+.hero-container{
+  display: flex;
+}
+.hero-container h1{
+  font-size: 3rem;
+  font-weight: 600;
+  padding-top: 3rem;
+  color: #ffffff;
+}
+.hero-container p{
+  color: #ffffff;
+}
+.book-btn{
+  height: 2.8rem;
+  width: 15rem;
+  margin-top: 2rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* padding: 1rem; */
+  background-color: #ffffff;
+  /* padding: 1rem; */
+  margin-bottom: 2rem;
+}
+.hero-bg-color{
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  background-color: rgb(95 111 255);
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+

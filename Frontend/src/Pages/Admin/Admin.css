@@ -1,0 +1,11 @@
+.admin-pages{
+  flex: 80%;
+  /* background-color: blanchedalmond !important; */
+}
+.admin-side{
+  flex: 20%;
+}
+ .admin-dashboard{
+  display: flex;
+ }
+ 

@@ -1,0 +1,35 @@
+.about-div{
+  display: flex;
+}
+.right-about{
+  margin: 0 2rem;
+}
+.about-main-div{
+  margin: 2rem 0;
+}
+.ab-blocks{
+  display: flex;
+}
+.block{
+  padding: 3.5rem 3rem;
+  border: 1px solid rgba(75, 85, 99, 0.747); ;
+}
+.block:hover{
+  background-color:rgb(95 111 255);;
+  /* color: #ffff !important; */
+}
+.block:hover h3, .block:hover p{
+  color: #ffff;
+}
+.ab-blocks h3{
+  color: rgb(75 85 99);
+}
+.botton-about h2{
+  font-size: 1.5rem ;
+  color:rgb(75 85 99) ;
+  font-weight: 500;
+}
+/* .botton-about{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+} */

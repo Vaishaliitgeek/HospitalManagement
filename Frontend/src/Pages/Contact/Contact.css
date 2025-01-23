@@ -1,0 +1,36 @@
+.contact-sec{
+  display: flex;
+ margin: 0 8rem;
+}
+.left-contact {
+  flex: 50%;
+  /* width: 100%; */
+}
+.right-contact{
+  flex: 50%;
+}
+.right-contact h3{
+  font-size: 1.2rem;
+  color: rgb(75 85 99);
+  font-weight: 700;
+}
+.left-contact img{
+  width: 360px;
+  height: auto;
+}
+.m-h{
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.contact-div{
+  margin: 2rem 0;
+}
+p{
+  color: rgb(107 114 128);
+}
+.explore-btn{
+  height: 3.4rem;
+  width: 8rem;
+  border: 2px solid black;
+}
