@@ -1,9 +1,11 @@
 const Patient = require("../models/patient.js");
+const Head=require('../models/head.js');
+const Doctor=require("../models/doctor.js")
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken'); 
 
 const createPatient = async (req, res) => {
-  console.log(req.body, "reqqq"); 
+  // console.log(req.body, "reqqq"); 
 
   try {
     const { firstName, lastName, email, password,phone,dob,gender } = req.body;
@@ -33,7 +35,7 @@ const createPatient = async (req, res) => {
 
     res.status(201).json({ message: 'Patient created successfully', patient });
   } catch (error) {
-    console.error('Error creating doctor:', error);
+    console.error('Error creating PAtient:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
@@ -102,6 +104,70 @@ const loginPatient = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+
+
+// const loginController = async (req, res) => {
+//   console.log(req.body,"request")
+//   try {
+//     const { email, password } = req.body;
+
+//     if (!email || !password) {
+//       return res.status(400).json({ message: 'Email and password are required' });
+//     }
+
+//     let user;
+//     let role;
+
+//     // Check in Head, Doctor, and Patient
+//     user = await Head.findOne({ where: { email } });
+//     if (user) role = 'head';
+
+//     if (!user) {
+//       user = await Doctor.findOne({ where: { email } });
+//       if (user) role = 'doctor';
+//     }
+
+//     if (!user) {
+//       user = await Patient.findOne({ where: { email } });
+//       if (user) role = 'patient';
+//     }
+
+//     // If user not found
+//     if (!user) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
+
+//     // Validate Password
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(401).json({ message: 'Invalid email or password' });
+//     }
+
+//     // Generate JWT with role
+//     const token = jwt.sign(
+//       { id: user.id, role }, 
+//       'your-secret-key', 
+//       { expiresIn: '1h' }
+//     );
+
+//     res.status(200).json({
+//       message: 'Login successful',
+//       token,
+//       role,
+//       user: {
+//         id: user.id,
+//         email: user.email,
+//         firstName: user.firstName || null,
+//         lastName: user.lastName || null,
+//       },
+//     });
+//   } catch (error) {
+//     console.error('Login error:', error);
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// };
+
 
 
 module.exports={createPatient,getAllPatients,loginPatient};

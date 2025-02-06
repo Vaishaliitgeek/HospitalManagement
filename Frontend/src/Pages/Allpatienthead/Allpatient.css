@@ -2,14 +2,13 @@ h1{
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
-  margin:2rem 0
+  margin:1rem 0
 }
 
-
+/* 
 
 .allpatient table{
   width: 100%;
-  /* background-color: rgb(140, 149, 190);s */
   border-collapse: collapse;
 }
 table,tr,td{
@@ -17,4 +16,9 @@ table,tr,td{
 }
 tr,td{
   text-align: center;
+} */
+
+thead{
+  background-color: rgb(95 111 255);
+  color:white
 }

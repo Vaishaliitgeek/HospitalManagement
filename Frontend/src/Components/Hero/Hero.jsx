@@ -9,12 +9,12 @@ const Hero = () => {
       <div className="hero-bg-color">
     <div className='hero-container'>
       <div className="left-hero">
-        <h1>Book Appointment with Trusted Doctors</h1>
+        <h1 className='hero-h11'>Book Appointment with Trusted Doctors</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt officia non deserunt magni aut eveniet, iste consectetur ea cupiditate adipisci.</p>
-        <button className='book-btn'>Book An Appointment <span><FaArrowRightLong /></span></button>
+        <button className='book-btn'>Create Account <span><FaArrowRightLong /></span></button>
       </div>
       <div className="right-hero">
-        <img src={hero}/>
+        <img className="right-hero-img" src={hero}/>
       </div>
     </div>
     </div>

@@ -3,18 +3,31 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getToken } from '../../utils/auth';
 import {jwtDecode} from 'jwt-decode';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+
 
 const DoctorAppointment = () => {
   const token = getToken();
+  const location=useLocation();
   const [data, setData] = useState([]);
 
+  const doctorData = location?.state?.doctor|| {}; 
+console.log(doctorData,"doctor dkhooo")
   let doctorId = null;
+  console.log()
 
   if (token) {
     try {
       const decodedToken = jwtDecode(token);
-      doctorId = decodedToken.id;
+      if(decodedToken.role=='doctor'){
+        doctorId = decodedToken.id;
+
+      }
+      else{
+        doctorId=localStorage.getItem('loggedInDoctor');
+        // doctorId=doctorData.id
+        console.log(doctorId,"id set ho gyuo")
+      }
     } catch (error) {
       console.error('Error decoding token:', error);
     }
@@ -30,7 +43,8 @@ const DoctorAppointment = () => {
           // },
         }
       );
-
+console.log(response,"fdd");
+console.log(doctorId,"dffdfdfdf")
       const filteredData = response.data.filter((item) => item.status === 'Pending');
       setData(filteredData); 
     } catch (error) {

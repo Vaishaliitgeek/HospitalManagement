@@ -13,4 +13,5 @@ router.post('/createAppointment',createAppointment);
 router.get('/getappointment/:patientId',getAppointbyPatientid);
 router.get('/getallpatients',getAllPatients)
 
+
 module.exports = router;

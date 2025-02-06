@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const sequelize=require('./Config/db.js');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ||5000;
 // const headController=require('./controllers/headcontroller.js')
 const headRoutes=require('./Routes/headRoutes.js')
 const doctorRoutes=require('./Routes/doctorRoutes.js')
@@ -9,6 +9,7 @@ const patientRoutes=require('./Routes/patientRoutes.js')
 const Doctor=require('./models/doctor.js')
 const Patient=require('./models/patient.js')
 const Appointment=require('./models/appointments.js')
+// const loginController=require('./controllers/Patientcontroller.js')
 const cors = require('cors');
 const path=require('path');
 
@@ -16,6 +17,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.use(cors());
+
 app.use(express.json()); 
 
 
@@ -26,6 +28,10 @@ app.use('/head',headRoutes);
 app.use('/doctor',doctorRoutes)
 // patient
 app.use('/patient',patientRoutes)
+app.use('/api',headRoutes);
+// common
+// app.use('/api',pat)
+// app.post('/login',loginController)
 
 // relationship
 // oneee

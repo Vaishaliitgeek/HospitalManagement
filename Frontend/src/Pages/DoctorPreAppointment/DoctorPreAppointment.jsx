@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getToken } from '../../utils/auth';
 import {jwtDecode} from 'jwt-decode'; // Fixed import
+import { NavLink } from 'react-router-dom';
 
 const DoctorPreAppointment = () => {
   const token = getToken(); // Get token from auth utility
@@ -11,8 +12,16 @@ const DoctorPreAppointment = () => {
   if (token) {
     try {
       const decodedHeader = jwtDecode(token);
-      doctorId = decodedHeader.id; // Extract the doctor's ID from the token
-      console.log(decodedHeader, 'Decoded Token');
+      if(decodedHeader.role=='doctor'){
+        doctorId = decodedHeader.id; // Extract the doctor's ID from the token
+        console.log(decodedHeader, 'Decoded Token');
+
+      }
+      else{
+        doctorId=localStorage.getItem('loggedInDoctor');
+        // doctorId=doctorData.id
+        console.log(doctorId,"id set ho gyuo")
+      }
     } catch (error) {
       console.error('Error decoding token:', error);
     }
@@ -66,6 +75,9 @@ const DoctorPreAppointment = () => {
   return (
     <div className="allpatient">
       <h1>Patients Appointments</h1>
+      <button className="pre-btn">
+          <NavLink to="/myAppoitment"> Appointments</NavLink>
+        </button>
       <table>
         <thead>
           <tr>
@@ -86,7 +98,15 @@ const DoctorPreAppointment = () => {
                 <td>{item.appointmentTime}</td>
                 <td>{item.Patient.firstName}</td>
                 <td>{item.Patient.status}</td>
-                <td>
+                {
+                  item.Patient.status=='Recovered'?<td>
+                  <button
+                    className="text-green-400 me-3"
+                    // onClick={() => updatePatientStatus(item.Patient.id)}
+                  >
+                    Delete
+                  </button>
+                </td>:<td>
                   <button
                     className="text-green-400 me-3"
                     onClick={() => updatePatientStatus(item.Patient.id)}
@@ -94,6 +114,8 @@ const DoctorPreAppointment = () => {
                     Recovered
                   </button>
                 </td>
+                }
+                
               </tr>
             ))
           ) : (

@@ -14,9 +14,10 @@
   gap: 2rem;
 }
 .row input{
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   border-bottom: 2px solid black;
   width: 100%;
+  /* position: relative; */
 }
 .submit-btn{
   background-color: rgb(95 111 255);
@@ -29,6 +30,22 @@
 .role-select{
   width: 70%;
 }
+.col{
+  position: relative;
+}
 /* .me-2{
   margin-right: 1rem;
 } */
+ /* input{
+  position: relative;
+ } */
+ .error-message{
+  color:red;
+  position: absolute;
+  top:4rem
+
+  /* position: relative;
+  top: 20%; */
+  /* position: ;
+  bottom: 2px; */
+ }

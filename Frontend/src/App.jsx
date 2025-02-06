@@ -19,6 +19,10 @@ import Appointmentform from './Pages/AppointmentForm/Appointmentform'
 import DoctorAppintment from './Pages/DoctorAppointment/DoctorAppintment'
 import PatientAppointment from './Pages/PatientAppointment/PatientAppointment'
 import DoctorPreAppointment from './Pages/DoctorPreAppointment/DoctorPreAppointment'
+import PrivateRoutes from './Pages/PrivateRoutes/PrivateRoutes'
+import myProfile from './Pages/MyProfile/myProfile'
+import UpdateProfile from './Pages/UpdateProfilePage/UpdateProfile'
+import PrivateRouteHead from './Pages/PrivateRouteHead'
 
 
 function App() {
@@ -37,12 +41,23 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/form' element={<Form/>}/>
-        <Route path='/admin/*' element={<Admin/>}/>
-        <Route path='/appointment' element={<Appointmentform/>}/>
-        <Route path='/myAppoitment' element={<DoctorAppintment/>}/>
-        <Route path='/myPreviousAppoitment' element={<DoctorPreAppointment/>}/>
+        <Route path='/myprofile' element={<PrivateRoutes Component={myProfile}/>}/>
+        <Route path='/admin' element={<PrivateRouteHead Component={Admin}/>}/>
+        <Route path='/admin/*' element={<PrivateRoutes Component={Admin}/>}/>
+        {/* <Route path='/admin/*' element={<Admin/>}/> */}
 
-        <Route path='/patientAppointment' element={<PatientAppointment/>}/>
+        <Route path='/myAppoitment' element={<PrivateRoutes Component={DoctorAppintment}/>}/>
+        <Route path='/myPreviousAppoitment' element={<PrivateRoutes Component={DoctorPreAppointment}/>}/>
+        
+        <Route path='/patientAppointment' element={<PrivateRoutes Component={PatientAppointment}/>}/>
+        <Route 
+        />
+        <Route path='/appointment' element={<Appointmentform/>}/>
+        <Route path='/updateprofile' element={<UpdateProfile/>}/>
+        {/* <Route path='/myAppoitment' element={<DoctorAppintment/>}/>
+        <Route path='/myPreviousAppoitment' element={<DoctorPreAppointment/>}/> */}
+
+        {/* <Route path='/patientAppointment' element={<PatientAppointment/>}/> */}
 
 
         {/* <Route path='/about' element={<About/>}/> */}

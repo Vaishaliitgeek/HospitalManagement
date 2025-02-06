@@ -1,0 +1,36 @@
+.edit-btn{
+  height: 2rem;
+  width: 3rem;
+  /* background-color: rgb(214, 167, 167); */
+  background-color: rgb(95 111 255);
+
+  color: white;
+  border-radius: 10px;
+  
+}
+.edit-btn:hover{
+  background-color: rgb(216, 70, 70);
+}
+.edit-logout-btn{
+  height: 2rem;
+  width: 4rem;
+  background-color: rgb(218, 23, 23);
+  color: white;
+  border-radius: 10px;
+}
+.edit-logout-btn:hover{
+  /* background-color:  rgb(194, 135, 135); */
+  background-color: rgb(155, 160, 204);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}

@@ -6,12 +6,13 @@ import {jwtDecode} from 'jwt-decode'
 const PatientAppointment = () => {
   const token = getToken();
   const [data, setData] = useState({});
+  // console.log(first)
   if (token) {
       try {
-        const decodedHeader = jwtDecode(token);
+        var decodedHeader = jwtDecode(token);
         // role = decodedHeader.id;
         var id=decodedHeader.id
-        console.log(decodedHeader,'dfsdd')
+        console.log(decodedHeader,'decodedtoekkk')
       } catch (error) {
         console.error('Error decoding token:', error);
       }
@@ -19,7 +20,7 @@ const PatientAppointment = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/patient/getappointment/${2}`);
+      const response = await axios.get(`http://localhost:5000/patient/getappointment/${id}`);
       setData(response.data); // Update state with fetched data
       console.log(response.data, "patients");
     } catch (error) {
@@ -33,6 +34,7 @@ const PatientAppointment = () => {
   return (
     <div>
       <div className='allpatient'>
+        
       <h1>Patient Appointment Me</h1>
       <table>
         <thead>

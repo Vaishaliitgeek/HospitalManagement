@@ -4,3 +4,13 @@
   text-align: center;
   margin-top: 2rem;
 }
+.select-style{
+  border: none;
+  /* background-color: red !important; */
+}
+/* .select-style::after{
+  border: none;
+} */
+ .row{
+  margin-top: 1rem !important;
+ }

@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import './Appointmentform.css';
 import Image from './img/signupimg.jpg';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { getToken } from '../../utils/auth';
+import {jwtDecode} from 'jwt-decode';
+
 
 const Appointmentform = () => {
+   const token = getToken();
   const [specialization, setSpecialization] = useState('');
   const [doctors, setDoctors] = useState([]);
   const [doctorId, setDoctorId] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
   const [appointmentTime, setAppointmentTime] = useState('');
   const [reason, setReason] = useState('');
-  const [patientId, setPatientId] = useState('');
+  const [patientId, setPatientId] = useState();
+  var patId;
   const navigate=useNavigate();
+  if (token) {
+      try {
+        const decodedHeader = jwtDecode(token);
+        patId = decodedHeader.id; 
+        
+        // setPatientId(decodedHeader.id)
+        console.log(patId,"iddddddddddddddddd")
+        // setPatientId(patId);
+        // console.log(patientId,"ptienyyyy")
+        console.log(decodedHeader, 'Decoded Token');
+      } catch (error) {
+        console.error('Error decoding token:', error);
+      }
+    }
   const fetchDoctors = async (specialization) => {
 
     // http://localhost:5000/doctor/getDoctorBySpecialization?specialization=Neurologist
@@ -33,7 +52,7 @@ console.log(specialization)
       fetchDoctors(selectedSpecialization);
     } else {
       console.log("niiiii")
-      setDoctors([]); // Clear doctors if no specialization is selected
+      setDoctors([]); 
     }
   };
   const preAppointment=()=>{
@@ -53,7 +72,7 @@ console.log(specialization)
           appointmentDate,
           appointmentTime,
           reason,
-          patientId,
+          patientId:patId,
           doctorId,
         }),
       });
@@ -61,7 +80,15 @@ console.log(specialization)
 
       if (response.ok) {
         alert('Appointment booked successfully!');
+        navigate('/home')
         console.log('Appointment created:', data);
+        // setDoctors('')
+        // setDoctorId("")
+        // setAppointmentDate("");
+        // setAppointmentTime("");
+        // setReason('');
+      
+        
       } else {
         alert(`Error: ${data.message}`);
       }
@@ -108,7 +135,7 @@ console.log(specialization)
                 name="specialist"
                 value={specialization}
                 onChange={handleSpecializationChange}
-                className="role-select"
+                className="role-select mt-2 select-style"
                 required
               >
                 <option value="">Select Specialist</option>
@@ -126,15 +153,16 @@ console.log(specialization)
               <input
                 type="text"
                 placeholder="Patient ID"
-                value={patientId}
-                onChange={(e) => setPatientId(e.target.value)}
+                value={patId}
+                
+                // onChange={(e) => setPatientId(e.target.value)}
                 required
               />
               <select
                 name="doctor"
                 value={doctorId}
                 onChange={(e) => setDoctorId(e.target.value)}
-                className="role-select"
+                className="role-select select-style"
                 required
               >
                 <option value="">Select Doctor</option>
